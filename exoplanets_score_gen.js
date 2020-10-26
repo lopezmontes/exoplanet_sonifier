@@ -1,3 +1,4 @@
+const { scrypt } = require('crypto');
 const fs = require('fs');
 const maxAPI = require('max-api');
 
@@ -53,6 +54,9 @@ Estrella: modulación de frecuencia sobre el timbre del planeta:
 var exoplanets_catalogue = JSON.parse(fs.readFileSync('confirmed_exoplanets.json'));
 var planetDur = 1;
 
+var minRad = 0;
+var maxRad = Infinity;
+
 
 function convertRange(unscaledNum, minAllowed, maxAllowed, min, max) {
     return (maxAllowed - minAllowed) * (unscaledNum - min) / (max - min) + minAllowed;
@@ -75,8 +79,21 @@ maxAPI.addHandler('planetDurBaseline', (d) => {
     planetDur = d;
 });
 
+// constraints from interface
+maxAPI.addHandler('minRad', (x) => {
+    minRad = x;
+    maxAPI.post("minRad = " + minRad);
+});
+
+maxAPI.addHandler('maxRad', (x) => {
+    maxRad = x;
+    maxAPI.post("maxRad = " + maxRad);
+});
+
+
 maxAPI.addHandler('exoplanet', (n) => {
     var planetSonifiable = true;
+    var constraints = true;
 
     var host = exoplanets_catalogue.exoplanets[n].fpl_hostname;
     var letter = exoplanets_catalogue.exoplanets[n].fpl_letter;
@@ -92,49 +109,71 @@ maxAPI.addHandler('exoplanet', (n) => {
     var decstr = exoplanets_catalogue.exoplanets[n].dec_str;
     var dist = exoplanets_catalogue.exoplanets[n].fst_dist;
     var omag = exoplanets_catalogue.exoplanets[n].fst_optmag;
-    var spt = exoplanets_catalogue.exoplanets[n].fst_spt;
+    var spt;
     var lum = exoplanets_catalogue.exoplanets[n].fst_lum;
     var mass = exoplanets_catalogue.exoplanets[n].fst_mass;
     var srad = exoplanets_catalogue.exoplanets[n].fst_rad;
     var age =  exoplanets_catalogue.exoplanets[n].fst_age;  
     if (disc === null ) { disc = 0 }; 
     if (orbp === null ) { orbp = 0 }; 
-    if (smax === null ) { smax = 0 }; 
+    if (smax === null ) { smax = 2 }; 
     if (ecc  === null) { ecc =  0 }; 
     if (bmas === null ) { bmas = 0 }; 
     if (bmas > 100 ) { bmas = 100 }; 
     if (rad  === null) { planetSonifiable = false }; 
     if (den  === null) { den =  0 }; 
+    if (den > 15) { den = 15 }; 
     if (dist === null ) { dist = 1000 }; 
     if (omag === null ) { omag = 0 }; 
-    if (spt  === null) { spt = 0 }; 
+    if (exoplanets_catalogue.exoplanets[n].fst_spt === null) {
+        spt = "M";
+    } else {
+        spt = exoplanets_catalogue.exoplanets[n].fst_spt.substring(0,1);
+        maxAPI.post(spt);
+    };    
     if (lum  === null) { lum =  0 }; 
     if (mass === null ) { mass = 0 }; 
     if (srad === null ) { srad = 0 }; 
     if (age  === null) { age =  0 };  
     rectasc = parseInt(rastr.substring(0,2));
-    // mapping 
-    // rad (0-77) -> (20000-20) 
-    // dist (0-8200)
-    // 
-    if (planetSonifiable == false) return;
-    maxAPI.outlet([
-        "e",
-        "i5",
-        0,
-        flexiRescale(bmas,0,100,planetDur*4,planetDur*20,.6),
-        flexiRescale(dist,8200,0,0,6000,2),
-        flexiRescale(rad,77,0,20,4000,30),
-        flexiRescale(orbp,1000,0,0.1,20,10),
-        flexiRescale(ecc,0,1,1,100,2),
-        flexiRescale(den,15,0,0,3,7),
-        flexiRescale(rectasc,0,24,0,1,1),
-        flexiRescale(srad,85,0,0,80,1.3),
-        flexiRescale(mass,0,11,0,8000,1.3),
-        Math.ceil(Math.random()*9),
-        Math.ceil(Math.random()*9)
 
-    ]);
+    // constraints
+    if (rad > maxRad || rad < minRad) constraints = false;  
+
+
+    if (planetSonifiable == false) return;
+    if (spt == "M") { spt = 9 };
+    if (spt == "K") { spt = 2 };
+    if (spt == "G") { spt = 4 };
+    if (spt == "F") { spt = 5 };
+    if (spt == "A") { spt = 6 };
+    if (spt == "B") { spt = 7 };
+    if (spt == "O") { spt = 8 };
+
+    if (smax > 2) smax = 2;
+    smax = Math.ceil(flexiRescale(smax,2,0,1,14,5));
+
+    maxAPI.post("smax = " + smax);
+ 
+    
+    if (constraints == true) {
+        maxAPI.outlet([
+            "e",
+            "i5",
+            0,
+            flexiRescale(bmas,0,100,planetDur*4,planetDur*20,.6),
+            flexiRescale(dist,8200,0,0,6000,2),
+            flexiRescale(rad,77,0,20,4000,30),
+            flexiRescale(orbp,1000,0,0.1,20,10),
+            flexiRescale(ecc,0,1,1,100,2),
+            flexiRescale(den,15,0,0,3,7),
+            flexiRescale(rectasc,0,24,0,1,1),
+            flexiRescale(srad,85,0,0,80,1.3),
+            flexiRescale(mass,0,11,0,8000,1.3),
+            spt,
+            smax,
+        ]);
+    };
 });
 
 

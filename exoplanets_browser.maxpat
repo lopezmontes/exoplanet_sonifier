@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 637.0, 79.0, 900.0, 859.0 ],
+		"rect" : [ 352.0, 216.0, 819.0, 883.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,31 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"format" : 6,
+					"id" : "obj-58",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 402.0, 808.0, 50.0, 22.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-36",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 402.0, 832.0, 67.0, 22.0 ],
+					"text" : "minRad $1"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"format" : 6,
 					"id" : "obj-45",
@@ -82,7 +107,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 24.833366334438324, 750.0, 609.316960752010345, 22.0 ],
-					"text" : "e i5 0 40 4677.358715 53.895276 18.268809 1.004851 0.481456 0.75 78.888381 345.043138 3 8",
+					"text" : "e i5 0 20 4234.829358 30.23696 19.245911 1 3 0.791667 78.705492 368.101755 9 1",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 
@@ -259,6 +284,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -329,7 +356,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 143.0, 79.0, 975.0, 882.0 ],
+						"rect" : [ 2403.0, 704.0, 975.0, 882.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -359,6 +386,18 @@
 						"assistshowspatchername" : 0,
 						"visible" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-3",
+									"maxclass" : "spectroscope~",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 504.0, 236.0, 407.0, 305.0 ],
+									"sono" : 1
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"bgcolor" : [ 0.082353, 0.082353, 0.082353, 1.0 ],
 									"calccount" : 16,
@@ -441,7 +480,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 591.0, 852.0, 360.0, 23.0 ],
-									"text" : "1.005426 -1.995427 0.990023 -1.995427 0.995449"
+									"text" : "1.006892 -1.994185 0.987329 -1.994185 0.99422"
 								}
 
 							}
@@ -518,7 +557,7 @@
 									"outlettype" : [ "list", "float", "float", "float", "float", "list", "int" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 591.0, 679.5, 360.0, 155.0 ],
-									"setfilter" : [ 0, 5, 1, 0, 0, 32.981800079345703, 3.384797811508179, 0.560000002384186, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+									"setfilter" : [ 0, 5, 1, 0, 0, 41.914569854736328, 3.384797811508179, 0.560000002384186, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
 									"varname" : "filtergraph~"
 								}
 
@@ -1606,7 +1645,7 @@
 										"interval" : 10,
 										"matchsr" : 1,
 										"message" : 1,
-										"output" : 1,
+										"output" : 0,
 										"overdrive" : 0
 									}
 ,
@@ -1889,7 +1928,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-118", 1 ],
-									"order" : 1,
+									"order" : 2,
 									"source" : [ "obj-6", 0 ]
 								}
 
@@ -1897,6 +1936,14 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-19", 0 ],
+									"order" : 1,
+									"source" : [ "obj-6", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-3", 0 ],
 									"order" : 0,
 									"source" : [ "obj-6", 0 ]
 								}
@@ -2329,7 +2376,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 53.838881015777588, 179.666675090789795, 22.0 ],
-					"text" : "CoRoT-30"
+					"text" : "Kepler-1339"
 				}
 
 			}
@@ -2353,7 +2400,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 330.752406470915787, 179.666675090789795, 22.0 ],
-					"text" : "18h30m24.264s"
+					"text" : "18h54m58.99s"
 				}
 
 			}
@@ -2365,7 +2412,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 358.742798188153358, 179.666675090789795, 22.0 ],
-					"text" : "+06d50m09.424s"
+					"text" : "+48d22m24.2s"
 				}
 
 			}
@@ -2377,7 +2424,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 442.713973339866072, 179.666675090789795, 22.0 ],
-					"text" : "\"G3 V\""
+					"text" : "\"K3 V\""
 				}
 
 			}
@@ -2543,7 +2590,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 109.819664450252759, 179.666675090789795, 22.0 ],
-					"text" : "\"CoRoT-30 b\""
+					"text" : "\"Kepler-1339 b\""
 				}
 
 			}
@@ -2622,6 +2669,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -2740,6 +2789,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-40", 0 ],
 					"source" : [ "obj-35", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-40", 0 ],
+					"source" : [ "obj-36", 0 ]
 				}
 
 			}
@@ -2975,6 +3031,13 @@
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-36", 0 ],
+					"source" : [ "obj-58", 0 ]
+				}
+
+			}
  ],
 		"dependency_cache" : [ 			{
 				"name" : "n4m.monitor.maxpat",
@@ -2996,14 +3059,14 @@
 			}
 , 			{
 				"name" : "exoplanets_queries.js",
-				"bootpath" : "~/jlm_documentos/KLEM/OSN_2020",
+				"bootpath" : "~/jlm_documentos/KLEM/OSN_2020/exoplanets_sonifier/exoplanet_sonifier_00",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "exoplanets_score_gen.js",
-				"bootpath" : "~/jlm_documentos/KLEM/OSN_2020",
+				"bootpath" : "~/jlm_documentos/KLEM/OSN_2020/exoplanets_sonifier/exoplanet_sonifier_00",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1

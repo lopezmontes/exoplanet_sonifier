@@ -19,14 +19,19 @@ massign 0, 0 ; Disable default MIDI assignments.
 massign 1, 2 ; Assign MIDI channel 1 to instr 2.
 zakinit 2, 1 ; Create 2 a-rate zak channels and 1 k-rate zak channel.
 giSine ftgen 1, 0, 16384, 10, 1 ; Generate a sine wave table.
-giSine2 ftgen 2, 0, 16384, 10, 1, .6, .4, .3, .2, .16, .14, .13, .11, .1, .07, .06, .04, .03, .02 ; Generate a sine wave table.
-giSine3 ftgen 3, 0, 16384, 10, 1, 0, .4, 0, .2, 0, .14, 0, .11, 0, .07, 0, .04, 0, .02 ; Generate a sine wave table.
-giSine4 ftgen 4, 0, 1025, 10, 1, .5, .333, .25, .2, .166, .143, .125, .111, .1, .0909, .0833, .077 ; Sawtooth
-giSine5 ftgen 5, 0,	1025, 10, 1, 0, .333, 0, .2, 0, .143, 0, .111, 0, .0909, 0, .077, 0, .0666, 0, .0588 ; Square wave
-giSine6 ftgen 6, 0, 1025, 10, .8, .9, .95, .96, 1, .91, .8, .75, .6, .42, .5, .4, .33, .28, .2, .15; Pulse
-giSine7 ftgen 7, 0, 4096, 11, 10, 1, .9; Pulse train
-giSine8 ftgen 8, 0, 8192, 9, 21, 1, 0, 22, 1, 0, 25, 1, 0, 27, 1, 0, 31, 1, 0, 33, 1, 0, 34, 1, 0, 35, 1, 0; higher order partials
-giSine9 ftgen 9, 0, 16384, 8, 1, 750, 0, 550, -1, 400, 0, 348, 1; stretched cosine
+giSine2 ftgen 2, 0, 16384, 8, 1, 750, 0, 550, -1, 400, 0, 348, 1; stretched cosine - for stellar type M
+giSine3 ftgen 3, 0, 16384, 10, 1, .6, .4, .3, .2, .16, .14, .13, .11, .1, .07, .06, .04, .03, .02 ;  - for stellar type K
+giSine4 ftgen 4, 0, 1025, 10, 1, .5, .333, .25, .2, .166, .143, .125, .111, .1, .0909, .0833, .077 ; Sawtooth - for stellar type G
+giSine5 ftgen 5, 0, 16384, 10, 1, 0, .4, 0, .2, 0, .14, 0, .11, 0, .07, 0, .04, 0, .02 ; similar to square wave table.
+giSine6 ftgen 6, 0,	1025, 10, 1, 0, .333, 0, .2, 0, .143, 0, .111, 0, .0909, 0, .077, 0, .0666, 0, .0588 ; Square wave - for stellar type F
+giSine7 ftgen 7, 0, 1025, 10, .8, .9, .95, .96, 1, .91, .8, .75, .6, .42, .5, .4, .33, .28, .2, .15; Pulse  - for stellar type A
+giSine8 ftgen 8, 0, 4096, 11, 10, 1, .9; Pulse train - for stellar type B
+giSine9 ftgen 9, 0, 8192, 9, 21, 1, 0, 22, 1, 0, 25, 1, 0, 27, 1, 0, 31, 1, 0, 33, 1, 0, 34, 1, 0, 35, 1, 0; higher order partials - for stellar type O
+giSine10 ftgen 10, 0, 8192, 9, 13, 1, 0, 19, 1, 0, 21, 1, 0, 27, 1, 0, 35, 1, 0, 37, 1, 0, 39, 1, 0, 41, 1, 0; higher order partials
+giSine11 ftgen 11, 0, 8192, 9, 31, 1, 0, 33, 1, 0, 34, 1, 0, 35, 1, 0, 36, 1, 0, 37, 1, 0, 38, 1, 0, 39, 1, 0; higher order partials
+giSine12 ftgen 12, 0, 8192, 9, 31, 1, 0, 32, 1, 0, 35, 1, 0, 37, 1, 0, 41, 1, 0, 43, 1, 0, 44, 1, 0, 45, 1, 0; higher order partials - for stellar type O
+giSine13 ftgen 13, 0, 8192, 9, 33, 1, 0, 39, 1, 0, 41, 1, 0, 47, 1, 0, 45, 1, 0, 47, 1, 0, 49, 1, 0, 51, 1, 0; higher order partials
+giSine14 ftgen 14, 0, 8192, 9, 51, 1, 0, 63, 1, 0, 74, 1, 0, 85, 1, 0, 96, 1, 0, 97, 1, 0, 98, 1, 0, 99, 1, 0; higher order partials
 
 
 ; Initialize MIDI control values. 
@@ -99,19 +104,6 @@ instr 2
     zawm aout, 1
 endin
     
-; FM instrument.  Score activated.
-instr 3
-    kCar line p6, p3, p7
-    kMod line p8, p3, p9
-    kNdx line p10, p3, p11
-    amp  linen .85, p3 * .5, p3, p3 * .5
-    aout foscil p5, cpspch(p4), kCar, kMod, kNdx, giSine
-    aout = aout * amp * .25
-
-    ; Mix into zak channel 2.
-    zawm aout, 2
-endin
-
 ; Effects instrument.  Always-on and score activated.
 instr 10
     aL zar 1      ; Read instr 2 audio.
@@ -119,16 +111,9 @@ instr 10
     denorm aL, aR ; Prevent CPU spikes on Intel processors.
 
     a1L, a1R freeverb aL, aR, .7, .2 ; Apply reverb effect.
-    a2L = a1L * .3 + aL * .7       ; Mix dry and wet signals. */
-    a2R = a1R * .3 + aR * .7       ; Mix dry and wet signals. */
+    a2L = a1L * .5 + aL * .5       ; Mix dry and wet signals. */
+    a2R = a1R * .5 + aR * .5       ; Mix dry and wet signals. */
     outch 1, a2L, 2, a2R
-/* 
-    aDel oscili .5, .69, giSine      ; LFO for flanger delay time
-    aDel = (aDel + .5) * .04 + .06   ; Condition LFO signal.
-    a3F flanger a3, aDel, .6         ; Apply flanger effect.
-    a3F = a3F * .45 + a3 * .55       ; Mix dry and wet signals.
-    outch 3, a3F, 4, a3F */
-
     zacl 0, 2  ; Clear audio channels to prevent audio build-up.
 endin
 
@@ -159,11 +144,11 @@ instr 5
 
     ; atack attached to planet density
     anoise rand idens * 5000
-    knoiseenv expseg 0.00001, idens, 1, imass*.3, 0.00001
+    knoiseenv expseg 0.00001, idens, .9, imass*.3, 0.00001
     attack reson knoiseenv * anoise, isize, 10, 2
 
     klastenv expseg 0.0001, idens, 1, p3-idens, 1
-    aleft,aright pan2 asig*kenv*klastenv +  attack, irecasc
+    aleft,aright pan2 asig*kenv*klastenv + attack, irecasc
     zawm aleft, 1
     zawm aright, 2
 endin
