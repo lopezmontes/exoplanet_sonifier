@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 352.0, 216.0, 819.0, 883.0 ],
+		"rect" : [ 74.0, 79.0, 618.0, 883.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,32 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"format" : 6,
+					"id" : "obj-12",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 479.5, 808.0, 50.0, 22.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-57",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 479.5, 832.0, 70.0, 22.0 ],
+					"presentation_linecount" : 2,
+					"text" : "maxRad $1"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"format" : 6,
 					"id" : "obj-58",
@@ -107,7 +133,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 24.833366334438324, 750.0, 609.316960752010345, 22.0 ],
-					"text" : "e i5 0 20 4234.829358 30.23696 19.245911 1 3 0.791667 78.705492 368.101755 9 1",
+					"text" : "e i5 0 32.36373 4766.246318 1133.915306 18.572364 1 1.272269 0.583333 75.659793 368.101755 9 12",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 
@@ -356,7 +382,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 2403.0, 704.0, 975.0, 882.0 ],
+						"rect" : [ 919.0, 79.0, 961.0, 901.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -480,7 +506,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 591.0, 852.0, 360.0, 23.0 ],
-									"text" : "1.006892 -1.994185 0.987329 -1.994185 0.99422"
+									"text" : "1.009318 -1.994641 0.985363 -1.994641 0.994682"
 								}
 
 							}
@@ -557,7 +583,7 @@
 									"outlettype" : [ "list", "float", "float", "float", "float", "list", "int" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 591.0, 679.5, 360.0, 155.0 ],
-									"setfilter" : [ 0, 5, 1, 0, 0, 41.914569854736328, 3.384797811508179, 0.560000002384186, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+									"setfilter" : [ 0, 5, 1, 0, 0, 44.483654022216797, 4.504183769226074, 0.560000002384186, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
 									"varname" : "filtergraph~"
 								}
 
@@ -2376,7 +2402,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 53.838881015777588, 179.666675090789795, 22.0 ],
-					"text" : "Kepler-1339"
+					"text" : "Kepler-391"
 				}
 
 			}
@@ -2400,7 +2426,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 330.752406470915787, 179.666675090789795, 22.0 ],
-					"text" : "18h54m58.99s"
+					"text" : "19h22m29.24s"
 				}
 
 			}
@@ -2412,7 +2438,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 358.742798188153358, 179.666675090789795, 22.0 ],
-					"text" : "+48d22m24.2s"
+					"text" : "+51d03m26.3s"
 				}
 
 			}
@@ -2424,7 +2450,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 442.713973339866072, 179.666675090789795, 22.0 ],
-					"text" : "\"K3 V\""
+					"text" : "\"M0 V\""
 				}
 
 			}
@@ -2590,7 +2616,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 109.819664450252759, 179.666675090789795, 22.0 ],
-					"text" : "\"Kepler-1339 b\""
+					"text" : "\"Kepler-391 b\""
 				}
 
 			}
@@ -2700,6 +2726,13 @@
 			}
  ],
 		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-57", 0 ],
+					"source" : [ "obj-12", 0 ]
+				}
+
+			}
+, 			{
 				"patchline" : 				{
 					"destination" : [ "obj-24", 0 ],
 					"source" : [ "obj-19", 0 ]
@@ -3028,6 +3061,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-19", 1 ],
 					"source" : [ "obj-55", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-40", 0 ],
+					"source" : [ "obj-57", 0 ]
 				}
 
 			}

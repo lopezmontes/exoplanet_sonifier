@@ -143,12 +143,15 @@ instr 5
 	asig oscil idist * aPoweredAM, isize + aFM, iwavetype
 
     ; atack attached to planet density
-    anoise rand idens * 5000
-    knoiseenv expseg 0.00001, idens, .9, imass*.3, 0.00001
-    attack reson knoiseenv * anoise, isize, 10, 2
+    ; anoise rand idens * 5000
+    knoiseenv expseg 0.00001, idens, .9, imass*.1, 0.00001
+    anoise randomi knoiseenv*(-1), knoiseenv, idens*4, 3
+    attack reson knoiseenv * anoise * aPoweredAM, isize, 10, 2
+    arefine reson attack, isize, 10, 2
+    
 
     klastenv expseg 0.0001, idens, 1, p3-idens, 1
-    aleft,aright pan2 asig*kenv*klastenv + attack, irecasc
+    aleft,aright pan2 asig*kenv*klastenv + arefine, irecasc
     zawm aleft, 1
     zawm aright, 2
 endin

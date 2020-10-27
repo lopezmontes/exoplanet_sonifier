@@ -46,23 +46,18 @@ Estrella: modulación de frecuencia sobre el timbre del planeta:
     Masa: profundidad de la modulación
     Tipo espectral: forma de onda
     Luminosidad: filtro pasabajos para dar brillantez a la onda modulante 
-
-
-
 */
 
 var exoplanets_catalogue = JSON.parse(fs.readFileSync('confirmed_exoplanets.json'));
 var planetDur = 1;
 
-var minRad = 0;
-var maxRad = Infinity;
-
+var minMass, minRad, minRad, minDist, minOrbp, minEcc, minDen, minRA, minSRad, minSMass, minSpectr, minSMax = 0;
+var maxMass, maxRad, maxRad, maxDist, maxOrbp, maxEcc, maxDen, maxRA, maxSRad, maxSMass, maxSpectr, maxSMax = Infinity;
 
 function convertRange(unscaledNum, minAllowed, maxAllowed, min, max) {
     return (maxAllowed - minAllowed) * (unscaledNum - min) / (max - min) + minAllowed;
 };
 
-  
 function flexiRescale (value, oldmin, oldmax, newMin, newMax, exponent) {
     var min = Math.min(oldmax,oldmin);
     var max = Math.max(oldmax,oldmin);
@@ -72,29 +67,105 @@ function flexiRescale (value, oldmin, oldmax, newMin, newMax, exponent) {
     return (newMax - newMin) * (value - 0) / 1 + newMin;
 };
 
-flexiRescale (2, 10, 0, 0, 2000, 3);
-
-
 maxAPI.addHandler('planetDurBaseline', (d) => {
     planetDur = d;
 });
 
 // constraints from interface
+maxAPI.addHandler('minMass', (x) => {
+    minMass = x;
+    maxAPI.post("minMass = " + minMass);
+});
+maxAPI.addHandler('maxMass', (x) => {
+    maxMass = x;
+    maxAPI.post("maxMass = " + maxMass);
+});
 maxAPI.addHandler('minRad', (x) => {
     minRad = x;
     maxAPI.post("minRad = " + minRad);
 });
-
 maxAPI.addHandler('maxRad', (x) => {
     maxRad = x;
     maxAPI.post("maxRad = " + maxRad);
 });
+maxAPI.addHandler('minDist', (x) => {
+    minDist = x;
+    maxAPI.post("minDist = " + minDist);
+});
+maxAPI.addHandler('maxDist', (x) => {
+    maxDist = x;
+    maxAPI.post("maxDist = " + maxDist);
+});
+maxAPI.addHandler('minOrbp', (x) => {
+    minOrbp = x;
+    maxAPI.post("minOrbp = " + minOrbp);
+});
+maxAPI.addHandler('maxOrbp', (x) => {
+    maxOrbp = x;
+    maxAPI.post("maxOrbp = " + maxOrbp);
+});
+maxAPI.addHandler('minEcc', (x) => {
+    minEcc = x;
+    maxAPI.post("minEcc = " + minEcc);
+});
+maxAPI.addHandler('maxEcc', (x) => {
+    maxEcc = x;
+    maxAPI.post("maxEcc = " + maxEcc);
+});
+maxAPI.addHandler('minDen', (x) => {
+    minDen = x;
+    maxAPI.post("minDen = " + minDen);
+});
+maxAPI.addHandler('maxDen', (x) => {
+    maxDen = x;
+    maxAPI.post("maxDen = " + maxDen);
+});
+maxAPI.addHandler('minRA', (x) => {
+    minRA = x;
+    maxAPI.post("minRA = " + minRA);
+});
+maxAPI.addHandler('maxRA', (x) => {
+    maxRA = x;
+    maxAPI.post("maxRA = " + maxRA);
+});
+maxAPI.addHandler('minSRad', (x) => {
+    minSRad = x;
+    maxAPI.post("minSRad = " + minSRad);
+});
+maxAPI.addHandler('maxSRad', (x) => {
+    maxSRad = x;
+    maxAPI.post("maxSRad = " + maxSRad);
+});
+maxAPI.addHandler('minSMass', (x) => {
+    minSMass = x;
+    maxAPI.post("minSMass = " + minSMass);
+});
+maxAPI.addHandler('maxSMass', (x) => {
+    maxSMass = x;
+    maxAPI.post("maxSMass = " + maxSMass);
+});
+maxAPI.addHandler('minSpectr', (x) => {
+    minSpectr = x;
+    maxAPI.post("minSpectr = " + minSpectr);
+});
+maxAPI.addHandler('maxSpectr', (x) => {
+    maxSpectr = x;
+    maxAPI.post("maxSpectr = " + maxSpectr);
+});
+maxAPI.addHandler('minSMax', (x) => {
+    minSMax = x;
+    maxAPI.post("minSMax = " + minSMax);
+});
+maxAPI.addHandler('maxSMax', (x) => {
+    maxSMax = x;
+    maxAPI.post("maxSMax = " + maxSMax);
+});
 
-
+// core function - exoplanet sonifier
 maxAPI.addHandler('exoplanet', (n) => {
     var planetSonifiable = true;
     var constraints = true;
-
+    // get exoplanet parameters from json basedata
     var host = exoplanets_catalogue.exoplanets[n].fpl_hostname;
     var letter = exoplanets_catalogue.exoplanets[n].fpl_letter;
     var name = exoplanets_catalogue.exoplanets[n].fpl_name;
@@ -114,6 +185,8 @@ maxAPI.addHandler('exoplanet', (n) => {
     var mass = exoplanets_catalogue.exoplanets[n].fst_mass;
     var srad = exoplanets_catalogue.exoplanets[n].fst_rad;
     var age =  exoplanets_catalogue.exoplanets[n].fst_age;  
+
+    // prefilter
     if (disc === null ) { disc = 0 }; 
     if (orbp === null ) { orbp = 0 }; 
     if (smax === null ) { smax = 2 }; 
@@ -137,25 +210,32 @@ maxAPI.addHandler('exoplanet', (n) => {
     if (age  === null) { age =  0 };  
     rectasc = parseInt(rastr.substring(0,2));
 
-    // constraints
-    if (rad > maxRad || rad < minRad) constraints = false;  
-
-
     if (planetSonifiable == false) return;
-    if (spt == "M") { spt = 9 };
-    if (spt == "K") { spt = 2 };
-    if (spt == "G") { spt = 4 };
-    if (spt == "F") { spt = 5 };
-    if (spt == "A") { spt = 6 };
-    if (spt == "B") { spt = 7 };
-    if (spt == "O") { spt = 8 };
+    var spectrNumber;
+    if (spt == "M") { spt = 9; spectrNumber = 1 };
+    if (spt == "K") { spt = 2; spectrNumber = 2 };
+    if (spt == "G") { spt = 4; spectrNumber = 3 };
+    if (spt == "F") { spt = 5; spectrNumber = 4 };
+    if (spt == "A") { spt = 6; spectrNumber = 5 };
+    if (spt == "B") { spt = 7; spectrNumber = 6 };
+    if (spt == "O") { spt = 8; spectrNumber = 7 };
 
-    if (smax > 2) smax = 2;
-    smax = Math.ceil(flexiRescale(smax,2,0,1,14,5));
-
-    maxAPI.post("smax = " + smax);
- 
+    // search constraints
+    if (bmas > maxMass || bmas < minMass) constraints = false;  
+    if (dist > maxDist || dist < minDist) constraints = false;  
+    if (rad > maxRad || rad < minRad) constraints = false;  
+    if (orbp > maxOrbp || orbp < minOrbp) constraints = false;  
+    if (ecc > maxEcc || ecc < minEcc) constraints = false;  
+    if (den > maxDen || den < minDen) constraints = false;  
+    if (rectasc > maxRA || rectasc < minRA) constraints = false;  
+    if (srad > maxSRad || srad < minSRad) constraints = false;  
+    if (mass > maxSMass || mass < minSMass) constraints = false;  
+    if (spectrNumber > maxSpectr || spectrNumber < minSpectr) constraints = false;  
+    if (smax > maxSMax || smax < minSMax) constraints = false;  
     
+    // parameters mapping and csound event generation
+    if (smax > 2) smax = 2;
+    smax = Math.ceil(flexiRescale(smax,2,0,1,14,5)); 
     if (constraints == true) {
         maxAPI.outlet([
             "e",
@@ -165,9 +245,9 @@ maxAPI.addHandler('exoplanet', (n) => {
             flexiRescale(dist,8200,0,0,6000,2),
             flexiRescale(rad,77,0,20,4000,30),
             flexiRescale(orbp,1000,0,0.1,20,10),
-            flexiRescale(ecc,0,1,1,100,2),
+            flexiRescale(ecc,0,1,1,70,2),
             flexiRescale(den,15,0,0,3,7),
-            flexiRescale(rectasc,0,24,0,1,1),
+            Math.abs(flexiRescale(rectasc,0,24,-1,1,1)),
             flexiRescale(srad,85,0,0,80,1.3),
             flexiRescale(mass,0,11,0,8000,1.3),
             spt,
@@ -175,17 +255,3 @@ maxAPI.addHandler('exoplanet', (n) => {
         ]);
     };
 });
-
-
-flexiRescale(240000,0,1000,8,50,.6);
-
-flexiRescale(5400,8200,0,0,6000,2);
-flexiRescale(.3,77,0,0,5000,40);
-
-flexiRescale(560,1000,0,0.1,40,10);
-flexiRescale(0.9,0,1,1,100,2);
-flexiRescale(1,15,0,0,3,10);
-flexiRescale(200,0,1000,10,300,1);
-
-
-flexiRescale(4,77,0,20,7000,20);
