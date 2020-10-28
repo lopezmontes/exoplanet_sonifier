@@ -77,6 +77,7 @@ maxAPI.addHandler('minMass', (x) => {
     maxAPI.post("minMass = " + minMass);
 });
 maxAPI.addHandler('maxMass', (x) => {
+    if (x > 99) x = Infinity;
     maxMass = x;
     maxAPI.post("maxMass = " + maxMass);
 });
@@ -85,6 +86,7 @@ maxAPI.addHandler('minRad', (x) => {
     maxAPI.post("minRad = " + minRad);
 });
 maxAPI.addHandler('maxRad', (x) => {
+    if (x > 76) x = Infinity;
     maxRad = x;
     maxAPI.post("maxRad = " + maxRad);
 });
@@ -93,6 +95,7 @@ maxAPI.addHandler('minDist', (x) => {
     maxAPI.post("minDist = " + minDist);
 });
 maxAPI.addHandler('maxDist', (x) => {
+    if (x > 8190) x = Infinity;
     maxDist = x;
     maxAPI.post("maxDist = " + maxDist);
 });
@@ -101,6 +104,7 @@ maxAPI.addHandler('minOrbp', (x) => {
     maxAPI.post("minOrbp = " + minOrbp);
 });
 maxAPI.addHandler('maxOrbp', (x) => {
+    if (x > 998) x = Infinity;
     maxOrbp = x;
     maxAPI.post("maxOrbp = " + maxOrbp);
 });
@@ -117,6 +121,7 @@ maxAPI.addHandler('minDen', (x) => {
     maxAPI.post("minDen = " + minDen);
 });
 maxAPI.addHandler('maxDen', (x) => {
+    if (x > 14.9) x = Infinity;
     maxDen = x;
     maxAPI.post("maxDen = " + maxDen);
 });
@@ -133,6 +138,7 @@ maxAPI.addHandler('minSRad', (x) => {
     maxAPI.post("minSRad = " + minSRad);
 });
 maxAPI.addHandler('maxSRad', (x) => {
+    if (x > 84.9) x = Infinity;
     maxSRad = x;
     maxAPI.post("maxSRad = " + maxSRad);
 });
@@ -141,6 +147,7 @@ maxAPI.addHandler('minSMass', (x) => {
     maxAPI.post("minSMass = " + minSMass);
 });
 maxAPI.addHandler('maxSMass', (x) => {
+    if (x > 10.98) x = Infinity;
     maxSMass = x;
     maxAPI.post("maxSMass = " + maxSMass);
 });
@@ -149,6 +156,7 @@ maxAPI.addHandler('minSpectr', (x) => {
     maxAPI.post("minSpectr = " + minSpectr);
 });
 maxAPI.addHandler('maxSpectr', (x) => {
+    if (x > 99) x = Infinity;
     maxSpectr = x;
     maxAPI.post("maxSpectr = " + maxSpectr);
 });
@@ -157,6 +165,7 @@ maxAPI.addHandler('minSMax', (x) => {
     maxAPI.post("minSMax = " + minSMax);
 });
 maxAPI.addHandler('maxSMax', (x) => {
+    if (x > 4.99) x = Infinity;
     maxSMax = x;
     maxAPI.post("maxSMax = " + maxSMax);
 });
@@ -202,7 +211,6 @@ maxAPI.addHandler('exoplanet', (n) => {
         spt = "M";
     } else {
         spt = exoplanets_catalogue.exoplanets[n].fst_spt.substring(0,1);
-        maxAPI.post(spt);
     };    
     if (lum  === null) { lum =  0 }; 
     if (mass === null ) { mass = 0 }; 
@@ -237,6 +245,20 @@ maxAPI.addHandler('exoplanet', (n) => {
     if (smax > 2) smax = 2;
     smax = Math.ceil(flexiRescale(smax,2,0,1,14,5)); 
     if (constraints == true) {
+        maxAPI.post("--------------------"); 
+        maxAPI.post("PLANET number " + n); 
+        maxAPI.post("Name: " + name);
+        maxAPI.post("Mass: " + exoplanets_catalogue.exoplanets[n].fpl_bmasse + " Earth masses");
+        maxAPI.post("Density: " + exoplanets_catalogue.exoplanets[n].fpl_dens + " gr/cm3");
+        maxAPI.post("Radius: " + exoplanets_catalogue.exoplanets[n].fpl_rade + " Earth radii");
+        maxAPI.post("Orbital period: " + exoplanets_catalogue.exoplanets[n].fpl_orbper + " days");
+        maxAPI.post("Orb. semi-major axis: " + exoplanets_catalogue.exoplanets[n].fpl_smax + " AU");
+        maxAPI.post("Eccentricity: " + exoplanets_catalogue.exoplanets[n].fpl_eccen);
+        maxAPI.post("Host star mass: " + exoplanets_catalogue.exoplanets[n].fst_mass + " Sol masses");
+        maxAPI.post("Host star radius: " + exoplanets_catalogue.exoplanets[n].fst_rad + " Sol radii");
+        maxAPI.post("Host star spectral type: " + exoplanets_catalogue.exoplanets[n].fst_spt);
+        maxAPI.post("Distance from Earth: " + exoplanets_catalogue.exoplanets[n].fst_dist + " kiloparsecs");
+        maxAPI.post("Rect ascention: " + exoplanets_catalogue.exoplanets[n].ra_str);
         maxAPI.outlet([
             "e",
             "i5",
