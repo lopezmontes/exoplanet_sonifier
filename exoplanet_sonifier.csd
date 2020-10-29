@@ -147,7 +147,7 @@ instr 5
     knoiseenv expseg 0.00001, idens, .9, imass*.1, 0.00001
     anoise randomi knoiseenv*(-1), knoiseenv, idens*4, 3
     attack reson knoiseenv * anoise * aPoweredAM, isize, 10, 2
-    arefine reson attack, isize, 10, 2
+    arefine reson attack, isize, 30, 2
     
 
     klastenv expseg 0.0001, idens, 1, p3-idens, 1

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 74.0, 79.0, 873.0, 895.0 ],
+		"rect" : [ 72.0, 79.0, 873.0, 895.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-36",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 20.0, 322.750031590461731, 87.0, 22.0 ],
+					"text" : "r searchToogle"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"fontsize" : 18.0,
 					"id" : "obj-12",
 					"maxclass" : "newobj",
@@ -57,7 +69,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 65.0, 553.0, 999.0, 937.0 ],
+						"rect" : [ 422.0, 212.0, 518.0, 683.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -88,6 +100,33 @@
 						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-105",
+									"maxclass" : "toggle",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "int" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 194.5, 22.0, 24.0, 24.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 194.5, 22.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-103",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 194.5, 51.750031590461731, 89.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 194.5, 51.750031590461731, 89.0, 22.0 ],
+									"text" : "s searchToogle"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-102",
 									"linecount" : 2,
 									"maxclass" : "message",
@@ -95,7 +134,9 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 112.0, 28.0, 54.0, 35.0 ],
+									"presentation" : 1,
 									"presentation_linecount" : 2,
+									"presentation_rect" : [ 112.0, 28.0, 54.0, 35.0 ],
 									"text" : ";\rinit bang"
 								}
 
@@ -108,9 +149,23 @@
 									"numoutlets" : 4,
 									"outlettype" : [ "preset", "int", "preset", "int" ],
 									"patching_rect" : [ 6.5, 28.0, 100.0, 40.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 28.0, 100.0, 40.0 ],
 									"preset_data" : [ 										{
 											"number" : 1,
 											"data" : [ 6, "obj-98", "rslider", "list", 0, 999, 6, "obj-72", "rslider", "list", 0, 999, 6, "obj-80", "rslider", "list", 0, 999, 6, "obj-88", "rslider", "list", 0, 999, 6, "obj-47", "rslider", "list", 0, 999, 6, "obj-55", "rslider", "list", 0, 999, 6, "obj-64", "rslider", "list", 0, 999, 6, "obj-39", "rslider", "list", 0, 999, 6, "obj-29", "rslider", "list", 0, 999, 6, "obj-20", "rslider", "list", 0, 999, 6, "obj-30", "rslider", "list", 0, 999 ]
+										}
+, 										{
+											"number" : 2,
+											"data" : [ 6, "obj-98", "rslider", "list", 0, 999, 6, "obj-72", "rslider", "list", 0, 999, 6, "obj-80", "rslider", "list", 0, 6, 6, "obj-88", "rslider", "list", 0, 999, 6, "obj-47", "rslider", "list", 0, 999, 6, "obj-55", "rslider", "list", 0, 999, 6, "obj-64", "rslider", "list", 0, 999, 6, "obj-39", "rslider", "list", 267, 999, 6, "obj-29", "rslider", "list", 0, 226, 6, "obj-20", "rslider", "list", 494, 615, 6, "obj-30", "rslider", "list", 0, 999 ]
+										}
+, 										{
+											"number" : 3,
+											"data" : [ 6, "obj-98", "rslider", "list", 0, 999, 6, "obj-72", "rslider", "list", 0, 999, 6, "obj-80", "rslider", "list", 0, 6, 6, "obj-88", "rslider", "list", 0, 999, 6, "obj-47", "rslider", "list", 437, 999, 6, "obj-55", "rslider", "list", 0, 999, 6, "obj-64", "rslider", "list", 0, 999, 6, "obj-39", "rslider", "list", 963, 999, 6, "obj-29", "rslider", "list", 0, 999, 6, "obj-20", "rslider", "list", 801, 999, 6, "obj-30", "rslider", "list", 739, 999 ]
+										}
+, 										{
+											"number" : 4,
+											"data" : [ 6, "obj-98", "rslider", "list", 0, 999, 6, "obj-72", "rslider", "list", 0, 999, 6, "obj-80", "rslider", "list", 0, 6, 6, "obj-88", "rslider", "list", 0, 999, 6, "obj-47", "rslider", "list", 0, 999, 6, "obj-55", "rslider", "list", 0, 999, 6, "obj-64", "rslider", "list", 0, 999, 6, "obj-39", "rslider", "list", 497, 999, 6, "obj-29", "rslider", "list", 53, 439, 6, "obj-20", "rslider", "list", 617, 999, 6, "obj-30", "rslider", "list", 144, 999 ]
 										}
  ]
 								}
@@ -125,6 +180,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 6.5, 758.0, 331.0, 24.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 628.0, 331.0, 24.0 ],
 									"text" : "HOST STAR RECT ASCENTION (hours)"
 								}
 
@@ -150,7 +207,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 819.5, 760.0, 75.0, 22.0 ]
+									"patching_rect" : [ 819.5, 760.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 430.5, 628.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -187,6 +246,8 @@
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 1,
 									"patching_rect" : [ 6.5, 784.0, 968.0, 27.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 648.0, 499.0, 27.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 60, 80 ],
@@ -213,7 +274,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 487.0, 760.0, 75.0, 22.0 ]
+									"patching_rect" : [ 487.0, 760.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 352.0, 628.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -238,7 +301,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 6.5, 700.0, 331.0, 24.0 ],
-									"presentation_linecount" : 2,
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 568.0, 331.0, 24.0 ],
 									"text" : "DISTANCE FROM EARTH (kpc)"
 								}
 
@@ -264,7 +328,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 819.5, 702.0, 75.0, 22.0 ]
+									"patching_rect" : [ 819.5, 702.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 430.5, 568.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -301,6 +367,8 @@
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 1,
 									"patching_rect" : [ 6.5, 726.0, 968.0, 27.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 588.0, 499.0, 27.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 60, 80 ],
@@ -327,7 +395,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 487.0, 702.0, 75.0, 22.0 ]
+									"patching_rect" : [ 487.0, 702.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 352.0, 568.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -352,7 +422,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 6.5, 636.0, 331.0, 24.0 ],
-									"presentation_linecount" : 2,
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 510.0, 331.0, 24.0 ],
 									"text" : "HOST STAR SPECTRAL TYPE"
 								}
 
@@ -378,7 +449,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 819.5, 638.0, 75.0, 22.0 ]
+									"patching_rect" : [ 819.5, 638.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 430.5, 510.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -416,6 +489,8 @@
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 1,
 									"patching_rect" : [ 6.5, 662.0, 968.0, 27.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 530.0, 499.0, 27.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 60, 80 ],
@@ -442,7 +517,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 487.0, 638.0, 75.0, 22.0 ]
+									"patching_rect" : [ 487.0, 638.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 352.0, 510.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -468,7 +545,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 6.5, 568.0, 331.0, 24.0 ],
-									"presentation_linecount" : 2,
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 452.0, 331.0, 24.0 ],
 									"text" : "HOST STAR RADIUS (Solar radii)"
 								}
 
@@ -494,7 +572,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 819.5, 570.0, 75.0, 22.0 ]
+									"patching_rect" : [ 819.5, 570.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 430.5, 453.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -532,6 +612,8 @@
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 1,
 									"patching_rect" : [ 6.5, 594.0, 968.0, 27.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 473.0, 499.0, 27.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 60, 80 ],
@@ -558,7 +640,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 487.0, 570.0, 75.0, 22.0 ]
+									"patching_rect" : [ 487.0, 570.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 352.0, 453.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -584,7 +668,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 6.5, 501.0, 331.0, 24.0 ],
-									"presentation_linecount" : 2,
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 397.0, 331.0, 24.0 ],
 									"text" : "HOST STAR MASS (Solar masses)"
 								}
 
@@ -610,7 +695,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 819.5, 503.0, 75.0, 22.0 ]
+									"patching_rect" : [ 819.5, 503.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 430.5, 397.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -621,9 +708,9 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 897.5, 503.0, 79.0, 22.0 ],
+									"patching_rect" : [ 897.5, 503.0, 85.0, 22.0 ],
 									"presentation_linecount" : 2,
-									"text" : "maxSMax $1"
+									"text" : "maxSMass $1"
 								}
 
 							}
@@ -648,6 +735,8 @@
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 1,
 									"patching_rect" : [ 6.5, 527.0, 968.0, 27.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 417.0, 499.0, 27.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 60, 80 ],
@@ -674,7 +763,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 487.0, 503.0, 75.0, 22.0 ]
+									"patching_rect" : [ 487.0, 503.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 352.0, 397.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -685,9 +776,9 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 565.0, 503.0, 75.0, 22.0 ],
+									"patching_rect" : [ 565.0, 503.0, 81.0, 22.0 ],
 									"presentation_linecount" : 2,
-									"text" : "minSMax $1"
+									"text" : "minSMass $1"
 								}
 
 							}
@@ -700,7 +791,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 6.5, 437.0, 331.0, 24.0 ],
-									"presentation_linecount" : 2,
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 343.0, 331.0, 24.0 ],
 									"text" : "PLANET ECCENTRICITY (0-1)"
 								}
 
@@ -726,7 +818,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 819.5, 439.0, 75.0, 22.0 ]
+									"patching_rect" : [ 819.5, 439.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 430.5, 343.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -763,6 +857,8 @@
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 1,
 									"patching_rect" : [ 6.5, 463.0, 968.0, 27.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 363.0, 499.0, 27.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 60, 80 ],
@@ -789,7 +885,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 487.0, 439.0, 75.0, 22.0 ]
+									"patching_rect" : [ 487.0, 439.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 352.0, 343.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -814,7 +912,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 6.5, 369.0, 331.0, 24.0 ],
-									"presentation_linecount" : 2,
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 290.0, 331.0, 24.0 ],
 									"text" : "PLANET SEMI-MAJOR AXIS (AUs)"
 								}
 
@@ -840,7 +939,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 819.5, 371.0, 75.0, 22.0 ]
+									"patching_rect" : [ 819.5, 371.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 430.5, 290.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -878,6 +979,8 @@
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 1,
 									"patching_rect" : [ 6.5, 395.0, 968.0, 27.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 310.0, 499.0, 27.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 60, 80 ],
@@ -904,7 +1007,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 487.0, 371.0, 75.0, 22.0 ]
+									"patching_rect" : [ 487.0, 371.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 352.0, 290.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -930,7 +1035,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 6.5, 302.0, 331.0, 24.0 ],
-									"presentation_linecount" : 2,
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 238.0, 331.0, 24.0 ],
 									"text" : "PLANET ORBITAL PERIOD (days)"
 								}
 
@@ -956,7 +1062,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 819.5, 304.0, 75.0, 22.0 ]
+									"patching_rect" : [ 819.5, 304.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 430.5, 239.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -994,6 +1102,8 @@
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 1,
 									"patching_rect" : [ 6.5, 328.0, 968.0, 27.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 259.0, 499.0, 27.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 60, 80 ],
@@ -1020,7 +1130,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 487.0, 304.0, 75.0, 22.0 ]
+									"patching_rect" : [ 487.0, 304.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 352.0, 239.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -1046,6 +1158,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 6.5, 238.0, 324.0, 24.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 184.0, 324.0, 24.0 ],
 									"text" : "PLANET RADIUS (Earths)"
 								}
 
@@ -1071,7 +1185,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 819.5, 240.0, 75.0, 22.0 ]
+									"patching_rect" : [ 819.5, 240.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 430.5, 185.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -1108,6 +1224,8 @@
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 1,
 									"patching_rect" : [ 6.5, 264.0, 968.0, 27.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 205.0, 499.0, 27.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 60, 80 ],
@@ -1134,7 +1252,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 487.0, 240.0, 75.0, 22.0 ]
+									"patching_rect" : [ 487.0, 240.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 352.0, 185.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -1159,7 +1279,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 6.5, 170.0, 277.0, 24.0 ],
-									"presentation_linecount" : 2,
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 129.0, 277.0, 24.0 ],
 									"text" : "PLANET DENSITY (gr/cm3)"
 								}
 
@@ -1185,7 +1306,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 819.5, 172.0, 75.0, 22.0 ]
+									"patching_rect" : [ 819.5, 172.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 430.5, 131.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -1222,6 +1345,8 @@
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 1,
 									"patching_rect" : [ 6.5, 196.0, 968.0, 27.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 150.0, 499.0, 27.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 60, 80 ],
@@ -1248,7 +1373,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 487.0, 172.0, 75.0, 22.0 ]
+									"patching_rect" : [ 487.0, 172.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 352.0, 131.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -1273,6 +1400,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 6.5, 106.0, 206.0, 24.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 78.0, 206.0, 24.0 ],
 									"text" : "PLANET MASS (Earths)"
 								}
 
@@ -1298,7 +1427,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 819.5, 108.0, 75.0, 22.0 ]
+									"patching_rect" : [ 819.5, 108.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 430.5, 78.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -1336,6 +1467,8 @@
 									"outlettype" : [ "", "" ],
 									"parameter_enable" : 1,
 									"patching_rect" : [ 6.5, 132.0, 968.0, 27.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 6.5, 98.0, 499.0, 27.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_initial" : [ 60, 80 ],
@@ -1374,7 +1507,9 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 487.0, 108.0, 75.0, 22.0 ]
+									"patching_rect" : [ 487.0, 108.0, 75.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 352.0, 78.0, 75.0, 22.0 ]
 								}
 
 							}
@@ -1490,6 +1625,13 @@
 									"destination" : [ "obj-98", 0 ],
 									"order" : 0,
 									"source" : [ "obj-101", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-103", 0 ],
+									"source" : [ "obj-105", 0 ]
 								}
 
 							}
@@ -2154,7 +2296,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 24.833366334438324, 750.0, 609.316960752010345, 22.0 ],
-					"text" : "e i5 0 6.502381 5849.795909 1848.983175 18.578153 1.2484 0.539708 0.083333 79.20562 218.667034 9 13",
+					"text" : "e i5 0 60 5850.821891 43.577743 0.1 26.6749 0 0.583333 73.52885 832.729592 2 1",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 
@@ -2401,7 +2543,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 679.0, 79.0, 961.0, 901.0 ],
+						"rect" : [ 541.0, 79.0, 961.0, 901.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -2525,7 +2667,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 591.0, 852.0, 360.0, 23.0 ],
-									"text" : "1.009318 -1.994641 0.985363 -1.994641 0.994682"
+									"text" : "1.005012 -1.992632 0.98766 -1.992632 0.992673"
 								}
 
 							}
@@ -2602,7 +2744,7 @@
 									"outlettype" : [ "list", "float", "float", "float", "float", "list", "int" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 591.0, 679.5, 360.0, 155.0 ],
-									"setfilter" : [ 0, 5, 1, 0, 0, 44.483654022216797, 4.504183769226074, 0.560000002384186, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+									"setfilter" : [ 0, 5, 1, 0, 0, 44.483654022216797, 2.368122577667236, 0.560000002384186, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
 									"varname" : "filtergraph~"
 								}
 
@@ -4421,7 +4563,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 53.838881015777588, 179.666675090789795, 22.0 ],
-					"text" : "K2-126"
+					"text" : "\"HD 32518\""
 				}
 
 			}
@@ -4445,7 +4587,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 330.752406470915787, 179.666675090789795, 22.0 ],
-					"text" : "13h34m11.17s"
+					"text" : "05h09m36.72s"
 				}
 
 			}
@@ -4457,7 +4599,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 358.742798188153358, 179.666675090789795, 22.0 ],
-					"text" : "-13d34m36.9s"
+					"text" : "+69d38m21.9s"
 				}
 
 			}
@@ -4469,7 +4611,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 442.713973339866072, 179.666675090789795, 22.0 ],
-					"text" : "\"F8 V\""
+					"text" : "\"K1 III\""
 				}
 
 			}
@@ -4635,7 +4777,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 575.0, 109.819664450252759, 179.666675090789795, 22.0 ],
-					"text" : "\"K2-126 b\""
+					"text" : "\"HD 32518 b\""
 				}
 
 			}
@@ -4839,6 +4981,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-40", 0 ],
 					"source" : [ "obj-35", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-26", 0 ],
+					"source" : [ "obj-36", 0 ]
 				}
 
 			}
