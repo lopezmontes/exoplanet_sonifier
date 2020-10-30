@@ -258,7 +258,7 @@ maxAPI.addHandler('exoplanet', (n) => {
         maxAPI.post("Host star radius: " + exoplanets_catalogue.exoplanets[n].fst_rad + " Sol radii");
         maxAPI.post("Host star spectral type: " + exoplanets_catalogue.exoplanets[n].fst_spt);
         maxAPI.post("Distance from Earth: " + exoplanets_catalogue.exoplanets[n].fst_dist + " kiloparsecs");
-        maxAPI.post("Right ascencion: " + exoplanets_catalogue.exoplanets[n].ra_str);
+        maxAPI.post("Right ascension: " + exoplanets_catalogue.exoplanets[n].ra_str);
         maxAPI.outlet([
             "e",
             "i5",

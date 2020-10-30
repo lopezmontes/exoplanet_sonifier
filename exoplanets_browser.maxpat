@@ -120,7 +120,7 @@
 					"patching_rect" : [ 29.0, 405.0, 150.0, 20.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 2,
-					"presentation_rect" : [ 12.0, 385.723581622628444, 46.0, 33.0 ],
+					"presentation_rect" : [ 12.0, 385.723581622628444, 48.0, 33.0 ],
 					"text" : "search speed"
 				}
 
@@ -2795,16 +2795,16 @@
 					"fontsize" : 12.0,
 					"gradient" : 0,
 					"id" : "obj-56",
-					"linecount" : 2,
+					"linecount" : 3,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 10.5, 447.223581622628444, 266.316960752010345, 35.0 ],
+					"patching_rect" : [ 10.5, 447.223581622628444, 266.316960752010345, 49.0 ],
 					"presentation" : 1,
-					"presentation_linecount" : 2,
-					"presentation_rect" : [ 12.0, 447.223581622628444, 266.316960752010345, 35.0 ],
-					"text" : "e i5 0 60 5922.849615 43.577743 12.14088 29.2624 0 0.25 78.681114 444.11 4 1",
+					"presentation_linecount" : 3,
+					"presentation_rect" : [ 12.0, 447.223581622628444, 266.316960752010345, 49.0 ],
+					"text" : "e i5 0 18 5926.441479 29.668916 14.766875 3.76 2.428617 0.916667 78.778636 354.225234 4 9",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 
@@ -2992,8 +2992,6 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
-						"node_bin_path" : "",
-						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -5061,7 +5059,7 @@
 					"patching_rect" : [ 535.0, 16.838881015777588, 144.666675090789795, 22.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 505.0, 16.838881015777588, 144.666675090789795, 22.0 ],
-					"text" : "\"HD 24040\""
+					"text" : "Kepler-236"
 				}
 
 			}
@@ -5089,7 +5087,7 @@
 					"patching_rect" : [ 535.0, 293.752406470915787, 110.784315645694733, 22.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 505.0, 293.752406470915787, 110.784315645694733, 22.0 ],
-					"text" : "03h50m22.97s"
+					"text" : "18h55m27.93s"
 				}
 
 			}
@@ -5103,7 +5101,7 @@
 					"patching_rect" : [ 535.0, 321.742798188153358, 110.784315645694733, 22.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 505.0, 321.742798188153358, 110.784315645694733, 22.0 ],
-					"text" : "+17d28m34.9s"
+					"text" : "+39d53m53.1s"
 				}
 
 			}
@@ -5117,7 +5115,7 @@
 					"patching_rect" : [ 535.0, 405.713973339866072, 110.784315645694733, 22.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 505.0, 405.713973339866072, 110.784315645694733, 22.0 ],
-					"text" : "\"G0 V\""
+					"text" : "\"M1 V\""
 				}
 
 			}
@@ -5308,7 +5306,7 @@
 					"patching_rect" : [ 535.0, 72.819664450252759, 144.666675090789795, 22.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 505.0, 72.819664450252759, 144.666675090789795, 22.0 ],
-					"text" : "\"HD 24040 b\""
+					"text" : "\"Kepler-236 b\""
 				}
 
 			}
@@ -5391,8 +5389,6 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
-						"node_bin_path" : "",
-						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
