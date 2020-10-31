@@ -132,14 +132,14 @@ instr 5
     istspectr = p12
     iwavetype = p13
     
-    
 	kenv linseg 0, idens, 1, imass * 0.5, 0.7, imass * 0.5 - idens, 0
 	aAM oscili 1, iorbp, 1, 0.5; orbital period is AM
 	aAM = aAM * 0.5
 	aAM = aAM + 0.5
-    aFM oscili istellarmas, istellarrad, istspectr
-
     aPoweredAM powershape aAM, iecc
+
+    aFM oscili istellarmas, istellarrad, istspectr
+    
 	asig oscil idist * aPoweredAM, isize + aFM, iwavetype
 
     ; atack attached to planet density
@@ -149,7 +149,6 @@ instr 5
     attack reson knoiseenv * anoise * aPoweredAM, isize, 10, 2
     arefine reson attack, isize, 30, 2
     
-
     klastenv expseg 0.0001, idens, 1, p3-idens, 1
     aleft,aright pan2 asig*kenv*klastenv + arefine, irecasc
     zawm aleft, 1
